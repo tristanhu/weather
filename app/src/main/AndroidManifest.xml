@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".WeatherActivity">
         </activity>
-        <activity android:name=".MyReactActivity">
+        <activity android:name=".react.MyReactActivity">
         </activity>
     </application>
 

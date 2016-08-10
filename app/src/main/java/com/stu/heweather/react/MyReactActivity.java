@@ -1,4 +1,4 @@
-package com.stu.heweather;
+package com.stu.heweather.react;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
+import com.stu.heweather.BuildConfig;
 
 public class MyReactActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler{
     private ReactRootView mReactRootView;

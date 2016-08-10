@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
 import com.jakewharton.rxbinding.view.RxView;
+import com.stu.heweather.react.MyReactActivity;
 
 import java.util.concurrent.TimeUnit;
 
