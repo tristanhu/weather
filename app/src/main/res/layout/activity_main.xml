@@ -17,4 +17,12 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:text="查询天气"/>
+
+    <Button
+        android:id="@+id/btnReact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:text="React"/>
 </RelativeLayout>
