@@ -18,5 +18,6 @@
   "homepage": "https://github.com/tristanhu/weather#readme",
   "dependencies": {
     "react-native": "^0.31.0"
-  }
+  },
+  "start": "node node_modules/react-native/local-cli/cli.js start"
 }
