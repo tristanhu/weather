@@ -5,22 +5,48 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  TouchableHighlight,
+  View,
+  NativeModules
 } from 'react-native';
 
-class HelloWorld extends React.Component {
+var MyToastModule = NativeModules.MyToastModule;
+
+var HelloWorld = React.createClass({
+   getInitialState() {
+    return {conte:'back'};
+  },
+
   render() {
+    var te = this.state.conte;
     return (
       <View style={styles.container}>
-        <Text style={styles.hello}>Hello, World</Text>
+        <Text style={styles.hello}>{te}</Text>
+        <TouchableHighlight onPress={this.toas}>
+          <Text style={styles.hello}>Press</Text>
+        </TouchableHighlight>
       </View>
     )
+  },
+
+  toas(){
+    MyToastModule.show('Awesome', 
+      MyToastModule.SHORT,
+      (msg)=>{this.setState({conte:"error " + msg})},
+      (msg)=>{this.setState({conte:"success " + msg})},
+      );
+ 
+    // MyToastModule.abc('Awesome', 
+    //   MyToastModule.SHORT
+    //   );
   }
-}
+});
+
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection:'row',
   },
   hello: {
     fontSize: 20,
