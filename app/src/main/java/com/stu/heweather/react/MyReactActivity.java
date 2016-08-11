@@ -1,5 +1,6 @@
 package com.stu.heweather.react;
 
+import android.animation.TypeEvaluator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -9,6 +10,7 @@ import com.facebook.react.LifecycleState;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.shell.MainReactPackage;
 import com.stu.heweather.BuildConfig;
 
@@ -19,6 +21,7 @@ public class MyReactActivity extends AppCompatActivity implements DefaultHardwar
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_my_react);
+
 
         mReactRootView = new ReactRootView(this);
         mReactInstanceManager = ReactInstanceManager.builder()
@@ -73,6 +76,14 @@ public class MyReactActivity extends AppCompatActivity implements DefaultHardwar
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        mReactInstanceManager.getCurrentReactContext()
+                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                .emit("key_event_down", event.getAction());
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override

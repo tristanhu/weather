@@ -7,7 +7,8 @@ import {
   Text,
   TouchableHighlight,
   View,
-  NativeModules
+  NativeModules,
+  DeviceEventEmitter 
 } from 'react-native';
 
 var MyToastModule = NativeModules.MyToastModule;
@@ -15,6 +16,14 @@ var MyToastModule = NativeModules.MyToastModule;
 var HelloWorld = React.createClass({
    getInitialState() {
     return {conte:'back'};
+  },
+
+  componentWillMount: function() {
+    DeviceEventEmitter.addListener('event_menu_down', function(e: Event) {
+      MyToastModule.abc('event_menu_down', 
+        MyToastModule.SHORT
+        );
+    });
   },
 
   render() {
