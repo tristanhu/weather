@@ -19,8 +19,8 @@ var HelloWorld = React.createClass({
   },
 
   componentWillMount: function() {
-    DeviceEventEmitter.addListener('event_menu_down', function(e: Event) {
-      MyToastModule.abc('event_menu_down', 
+    DeviceEventEmitter.addListener('key_event_down', function(e: Event) {
+      MyToastModule.showABC('key_event_down', 
         MyToastModule.SHORT
         );
     });
