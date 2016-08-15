@@ -13,6 +13,8 @@ import {
 
 var MyToastModule = NativeModules.MyToastModule;
 
+var MyReactTextView = require('./MyReactTextView');
+
 var HelloWorld = React.createClass({
    getInitialState() {
     return {conte:'back'};
@@ -31,6 +33,14 @@ var HelloWorld = React.createClass({
     return (
       <View style={styles.container}>
         <Text style={styles.hello}>{te}</Text>
+        <MyReactTextView 
+            style={styles.myText}
+            src={[{abc:"ttt", ddd:"aaa"}, {abc:'ddd'}]} 
+            resizeMode="contain"
+            onChangeMessage={(msg)=>MyToastModule.showABC(JSON.stringify(msg),MyToastModule.SHORT)}>
+
+            </MyReactTextView>
+
         <TouchableHighlight onPress={this.toas}>
           <Text style={styles.hello}>Press</Text>
         </TouchableHighlight>
@@ -62,6 +72,11 @@ var styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
+  myText:{
+    backgroundColor:'blue',
+    width:100,
+    height:100,
+  }
 });
 
 AppRegistry.registerComponent('HelloWorld', () => HelloWorld);

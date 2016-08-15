@@ -80,9 +80,13 @@ public class MyReactActivity extends AppCompatActivity implements DefaultHardwar
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        mReactInstanceManager.getCurrentReactContext()
-                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                .emit("key_event_down", event.getAction());
+        try {
+            mReactInstanceManager.getCurrentReactContext()
+                    .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                    .emit("key_event_down", event.getAction());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return super.onKeyDown(keyCode, event);
     }
 
